@@ -1,0 +1,208 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #f9fafb, #ebf8ff);
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Keep existing styles from original App.css */
+/* ... (previous App.css content remains the same) ... */
+
+.text-center {
+  text-align: center;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(to bottom right, #3b82f6, #2563eb);
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(to bottom right, #2563eb, #1d4ed8);
+}
+
+.button svg {
+  margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.error-box {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-radius: 0.5rem;
+}
+
+.example-spaces {
+  margin-top: 3rem;
+}
+
+.space-link {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #374151;
+  transition: 0.3s ease;
+}
+
+.space-link:hover {
+  border-color: #60a5fa;
+  color: #2563eb;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.upload-container {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.header {
+  padding: 2rem;
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.header .back-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.upload-box {
+  padding: 2rem;
+  border: 2px dashed #d1d5db;
+  border-radius: 1rem;
+  text-align: center;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.upload-box.drag-active {
+  background-color: #eff6ff;
+  border-color: #60a5fa;
+}
+
+.upload-box svg {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  color: #9ca3af;
+}
+
+.file-name {
+  font-weight: 500;
+  color: #374151;
+}
+
+.file-message {
+  color: #6b7280;
+}
+
+.upload-buttons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.choose-file input[type="file"] {
+  display: none;
+}
+
+.choose-file label {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.upload-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.upload-button.enabled {
+  background-color: #16a34a;
+  color: white;
+}
+
+.upload-button.disabled {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.files-list {
+  margin-top: 2rem;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.file-item a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.file-item button {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+}

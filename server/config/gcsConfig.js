@@ -91,7 +91,25 @@ async function listFilesFromGCS(prefix = "") {
   }));
 }
 
+async function deleteFileFromGCS(fileUrl) {
+  try {
+    // Extract file path from URL
+    const filePath = fileUrl.replace(
+      `https://storage.googleapis.com/${bucket.name}/`,
+      ""
+    );
+    const file = bucket.file(filePath);
+
+    await file.delete();
+    return true;
+  } catch (err) {
+    console.error("Delete error:", err);
+    throw err;
+  }
+}
+
 module.exports = {
   uploadFileToGCS,
   listFilesFromGCS,
+  deleteFileFromGCS, // Add this to exports
 };
