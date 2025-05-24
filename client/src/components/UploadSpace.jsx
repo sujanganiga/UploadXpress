@@ -17,7 +17,7 @@ const UploadSpace = () => {
   const fetchFiles = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/files/${userPath}`
+        `https://uploadxpress-backend.onrender.com/api/files/${userPath}`
       );
       setFilesList(res.data.files);
     } catch (err) {
@@ -69,7 +69,7 @@ const UploadSpace = () => {
       setError("");
 
       const res = await axios.post(
-        "http://localhost:5000/api/upload",
+        "https://uploadxpress-backend.onrender.com/api/upload",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -88,9 +88,12 @@ const UploadSpace = () => {
     if (!window.confirm("Permanently delete this file?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/files/${userPath}`, {
-        data: { fileUrl },
-      });
+      await axios.delete(
+        `https://uploadxpress-backend.onrender.com/api/files/${userPath}`,
+        {
+          data: { fileUrl },
+        }
+      );
       await fetchFiles();
     } catch (err) {
       console.error("Delete error:", err);

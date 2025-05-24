@@ -43,7 +43,7 @@ const HomePage = () => {
   return (
     <div className="homepage-container">
       <div className="homepage-header">
-        <h1 className="homepage-title">FileDrop</h1>
+        <h1 className="homepage-title">UploadXpress</h1>
         <p className="homepage-subtitle">
           Your personal cloud storage with custom URLs
         </p>
