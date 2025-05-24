@@ -39,3 +39,6 @@ server/service-account.json
 
 # Ignore node_modules folder
 /node_modules/
+
+/server/config/service-account.json
+
