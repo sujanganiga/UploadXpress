@@ -51,7 +51,6 @@ const { Storage } = require("@google-cloud/storage");
 const path = require("path");
 require("dotenv").config();
 
-const { Storage } = require("@google-cloud/storage");
 const fs = require("fs");
 
 const creds = Buffer.from(process.env.GCP_CREDENTIALS, "base64").toString("utf-8");
