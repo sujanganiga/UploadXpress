@@ -10,7 +10,8 @@ const FileList = () => {
     const fetchFiles = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/files/${userPath}`
+          // `http://localhost:5000/api/files/${userPath}`
+          `https://uploadxpress-backend.onrender.com/api/files/${userPath}`
         );
         setFiles(res.data.files);
       } catch (err) {
