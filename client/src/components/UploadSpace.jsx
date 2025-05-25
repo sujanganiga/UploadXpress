@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-// import "../css/UploadSpace.css";
 import "../components/css/UploadSpace.css";
 
 const UploadSpace = () => {
@@ -17,6 +16,7 @@ const UploadSpace = () => {
   const fetchFiles = async () => {
     try {
       const res = await axios.get(
+        // `http://localhost:5000/api/files/${userPath}`
         `https://uploadxpress-backend.onrender.com/api/files/${userPath}`
       );
       setFilesList(res.data.files);
@@ -28,6 +28,18 @@ const UploadSpace = () => {
   useEffect(() => {
     fetchFiles();
   }, [userPath]);
+
+  const formatUploadDate = (dateString) => {
+    const options = {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    };
+    return new Date(dateString).toLocaleDateString("en-US", options);
+  };
 
   const handleDrag = (e) => {
     e.preventDefault();
@@ -69,6 +81,7 @@ const UploadSpace = () => {
       setError("");
 
       const res = await axios.post(
+        // "http://localhost:5000/api/upload",
         "https://uploadxpress-backend.onrender.com/api/upload",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
@@ -89,6 +102,7 @@ const UploadSpace = () => {
 
     try {
       await axios.delete(
+        // `http://localhost:5000/api/files/${userPath}`,
         `https://uploadxpress-backend.onrender.com/api/files/${userPath}`,
         {
           data: { fileUrl },
@@ -221,7 +235,7 @@ const UploadSpace = () => {
                     <div className="file-details">
                       <p className="file-name">{file.name}</p>
                       <p className="file-date">
-                        Uploaded: {new Date(file.uploadedAt).toLocaleString()}
+                        {formatUploadDate(file.uploadedAt)}
                       </p>
                     </div>
                   </div>
@@ -242,12 +256,30 @@ const UploadSpace = () => {
                         />
                       </svg>
                     </a>
-                    <button
+                    {/* <button
                       onClick={() => handleDelete(file.url)}
                       className="delete-button"
                       title="Delete"
                     >
                       <svg viewBox="0 0 24 24">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                        />
+                      </svg>
+                    </button> */}
+                    <button
+                      onClick={() => handleDelete(file.url)}
+                      className="delete-button"
+                      title="Delete"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                      >
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"

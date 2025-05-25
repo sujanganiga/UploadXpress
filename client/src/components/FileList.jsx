@@ -22,24 +22,30 @@ const FileList = () => {
   }, [userPath]);
 
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Files in /{userPath}</h2>
+    <div className="file-list-container">
+      <h2 className="file-list-title">Files in /{userPath}</h2>
       {files.length === 0 ? (
-        <p>No files uploaded yet</p>
+        <p className="empty-message">No files uploaded yet</p>
       ) : (
-        <ul className="space-y-3">
+        <ul className="file-list">
           {files.map((file, index) => (
-            <li key={index}>
+            <li key={index} className="file-item">
               <a
                 href={file.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 underline"
+                className="file-link"
               >
                 {file.name}
               </a>
-              <span className="text-xs text-gray-500 ml-2">
-                ({new Date(file.uploadedAt).toLocaleDateString()})
+              <span className="file-date">
+                {new Date(file.uploadedAt).toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
               </span>
             </li>
           ))}

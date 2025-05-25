@@ -50,16 +50,23 @@ module.exports = {
 const { Storage } = require("@google-cloud/storage");
 const path = require("path");
 require("dotenv").config();
+/*
+const storage = new Storage({
+  keyFilename: path.join(__dirname, "service-account.json"),
+});*/
 
 const fs = require("fs");
 
-const creds = Buffer.from(process.env.GCP_CREDENTIALS, "base64").toString("utf-8");
+const creds = Buffer.from(process.env.GCP_CREDENTIALS, "base64").toString(
+  "utf-8"
+);
 fs.writeFileSync("/tmp/creds.json", creds);
 
 const storage = new Storage({
-  keyFilename: "/tmp/creds.json"
+  keyFilename: "/tmp/creds.json",
 });
 
+// Ensure the GCS bucket name is set in environment variables
 
 const bucketName = process.env.GCS_BUCKET;
 if (!bucketName) {

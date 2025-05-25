@@ -344,3 +344,76 @@
     flex-direction: column;
   }
 }
+.file-date {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+/* For FileList component */
+.file-list-container {
+  margin-top: 2rem;
+}
+
+.file-list-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.file-link {
+  color: #2563eb;
+  text-decoration: none;
+  flex-grow: 1;
+}
+
+.file-link:hover {
+  text-decoration: underline;
+}
+
+/* Update these styles */
+.download-button,
+.delete-button {
+  padding: 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-button:hover {
+  color: #2563eb;
+  background-color: #eff6ff;
+}
+
+.delete-button:hover {
+  color: #dc2626;
+  background-color: #fee2e2;
+}
+
+/* Add these styles for SVG icons */
+.download-button svg,
+.delete-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: currentColor;
+}
